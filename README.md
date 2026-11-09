@@ -1,6 +1,6 @@
 ## Portfólio publicado
 
-Acesse a versão online: [Vladimir Queiroz Sejas — Portfólio Digital](https://vladimirsejas.github.io/Portfolio-Digital./)
+Acesse a versão online: [Vladimir Queiroz Sejas — Portfólio Digital](https://vladimirsejas.github.io/Portfolio-Digital/)
 
 # Portfólio Acadêmico e Tecnológico — Vladimir Queiroz Sejas
 
