@@ -1,452 +1,341 @@
-
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Portfólio acadêmico e tecnológico de Vladimir Sejas, estudante de Inteligência Artificial na FATEC Rio Claro.">
-    <title>Vladimir Sejas | Portfólio Digital</title>
-
-    <style>
-        :root {
-            --fundo: #f7f5f2;
-            --branco: #ffffff;
-            --texto: #292735;
-            --secundario: #777386;
-            --roxo: #59436f;
-            --lavanda: #e9e1f0;
-            --linha: #e6e1e9;
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
-
-        body {
-            font-family: Arial, Helvetica, sans-serif;
-            background: var(--fundo);
-            color: var(--texto);
-            line-height: 1.7;
-        }
-
-        a {
-            color: inherit;
-            text-decoration: none;
-        }
-
-        .container {
-            width: min(1100px, 90%);
-            margin: auto;
-        }
-
-        header {
-            padding: 24px 0;
-            border-bottom: 1px solid var(--linha);
-            background: rgba(255,255,255,0.85);
-        }
-
-        nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            gap: 20px;
-            flex-wrap: wrap;
-        }
-
-        .logo {
-            font-size: 20px;
-            font-weight: bold;
-            color: var(--roxo);
-        }
-
-        .menu {
-            display: flex;
-            gap: 24px;
-            flex-wrap: wrap;
-            font-size: 14px;
-        }
-
-        .menu a:hover {
-            color: var(--roxo);
-        }
-
-        .hero {
-            padding: 100px 0 90px;
-        }
-
-        .etiqueta {
-            display: inline-block;
-            background: var(--lavanda);
-            color: var(--roxo);
-            padding: 7px 15px;
-            border-radius: 30px;
-            font-size: 13px;
-            margin-bottom: 25px;
-        }
-
-        h1 {
-            font-size: clamp(38px, 7vw, 66px);
-            line-height: 1.12;
-            max-width: 850px;
-            letter-spacing: -2px;
-        }
-
-        h1 span {
-            color: var(--roxo);
-        }
-
-        .hero p {
-            color: var(--secundario);
-            font-size: 18px;
-            max-width: 680px;
-            margin: 25px 0 32px;
-        }
-
-        .botao {
-            display: inline-block;
-            background: var(--roxo);
-            color: white;
-            padding: 13px 24px;
-            border-radius: 7px;
-            font-weight: bold;
-            transition: 0.2s;
-        }
-
-        .botao:hover {
-            background: #443153;
-            transform: translateY(-2px);
-        }
-
-        section {
-            padding: 75px 0;
-            border-top: 1px solid var(--linha);
-        }
-
-        .subtitulo {
-            color: var(--roxo);
-            font-size: 13px;
-            font-weight: bold;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            margin-bottom: 12px;
-        }
-
-        h2 {
-            font-size: 34px;
-            margin-bottom: 20px;
-            letter-spacing: -1px;
-        }
-
-        .descricao {
-            color: var(--secundario);
-            max-width: 750px;
-            margin-bottom: 35px;
-        }
-
-        .grade {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-            gap: 22px;
-        }
-
-        .card {
-            background: var(--branco);
-            border: 1px solid var(--linha);
-            border-radius: 12px;
-            padding: 27px;
-            transition: 0.2s;
-        }
-
-        .card:hover {
-            transform: translateY(-4px);
-            border-color: #b8a4c9;
-        }
-
-        .card h3 {
-            color: var(--roxo);
-            font-size: 20px;
-            margin-bottom: 12px;
-        }
-
-        .card p {
-            color: var(--secundario);
-            font-size: 15px;
-        }
-
-        .sobre {
-            background: var(--branco);
-        }
-
-        .competencias {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 12px;
-        }
-
-        .competencias span {
-            background: var(--lavanda);
-            color: var(--roxo);
-            padding: 9px 16px;
-            border-radius: 25px;
-            font-size: 14px;
-        }
-
-        .contato {
-            background: #30283a;
-            color: white;
-        }
-
-        .contato .subtitulo {
-            color: #cdb9df;
-        }
-
-        .contato .descricao {
-            color: #d5cedc;
-        }
-
-        .contato .botao {
-            background: white;
-            color: var(--roxo);
-        }
-
-        footer {
-            padding: 25px 0;
-            text-align: center;
-            color: var(--secundario);
-            font-size: 13px;
-        }
-
-        @media (max-width: 600px) {
-            .hero {
-                padding: 70px 0;
-            }
-
-            .menu {
-                gap: 14px;
-                font-size: 13px;
-            }
-
-            h2 {
-                font-size: 28px;
-            }
-
-            section {
-                padding: 55px 0;
-            }
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Portfólio acadêmico e tecnológico de Vladimir Sejas, estudante de Inteligência Artificial na FATEC Rio Claro. Projetos, pesquisas e desenvolvimento de soluções com dados e tecnologia.">
+  <meta name="theme-color" content="#f7f5f2">
+  <title>Vladimir Sejas | Portfólio</title>
+  <style>
+    :root {
+      --paper: #f7f5f2;
+      --white: #fff;
+      --ink: #292735;
+      --muted: #716d7c;
+      --purple: #59436f;
+      --purple-dark: #392b47;
+      --lavender: #e9e1f0;
+      --line: #e5e0e8;
+      --green: #647c70;
+      --max: 1120px;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--paper);
+      color: var(--ink);
+      font-family: Inter, "Segoe UI", Arial, sans-serif;
+      line-height: 1.7;
+    }
+    a { color: inherit; text-decoration: none; }
+    a:focus-visible { outline: 3px solid #9b7db5; outline-offset: 4px; }
+    .wrap { width: min(var(--max), 90%); margin: 0 auto; }
+    header {
+      position: sticky; top: 0; z-index: 10;
+      background: rgba(247,245,242,.94);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--line);
+    }
+    nav {
+      min-height: 76px; display: flex; align-items: center;
+      justify-content: space-between; gap: 24px;
+    }
+    .brand { color: var(--purple); font-size: 1.08rem; font-weight: 800; letter-spacing: -.03em; }
+    .menu { display: flex; align-items: center; gap: 25px; flex-wrap: wrap; }
+    .menu a { color: var(--muted); font-size: .88rem; }
+    .menu a:hover { color: var(--purple); }
+    .hero { padding: 112px 0 105px; }
+    .eyebrow {
+      display: inline-flex; align-items: center; gap: 9px;
+      color: var(--purple); background: var(--lavender);
+      border-radius: 999px; padding: 7px 14px;
+      font-size: .76rem; font-weight: 800; letter-spacing: .1em;
+      text-transform: uppercase;
+    }
+    .eyebrow:before { content: ""; width: 7px; height: 7px; border-radius: 50%; background: var(--green); }
+    h1 {
+      max-width: 900px; margin-top: 27px;
+      font-size: clamp(2.7rem, 7vw, 5.35rem);
+      line-height: 1.04; letter-spacing: -.065em; font-weight: 750;
+    }
+    h1 span { color: var(--purple); }
+    .lead { max-width: 730px; margin: 28px 0 32px; color: var(--muted); font-size: clamp(1.05rem, 2vw, 1.22rem); }
+    .actions { display: flex; gap: 13px; flex-wrap: wrap; }
+    .button {
+      display: inline-flex; align-items: center; justify-content: center;
+      min-height: 47px; padding: 0 21px; border-radius: 7px;
+      background: var(--purple); color: white; font-weight: 700; font-size: .92rem;
+      transition: transform .2s, background .2s;
+    }
+    .button:hover { background: var(--purple-dark); transform: translateY(-2px); }
+    .button.secondary { background: transparent; border: 1px solid #cfc5d7; color: var(--purple); }
+    .button.secondary:hover { background: var(--lavender); }
+    section { padding: 82px 0; border-top: 1px solid var(--line); }
+    .section-kicker { color: var(--purple); font-size: .76rem; font-weight: 800; letter-spacing: .16em; text-transform: uppercase; margin-bottom: 9px; }
+    h2 { font-size: clamp(2rem, 4vw, 2.75rem); letter-spacing: -.045em; line-height: 1.15; margin-bottom: 17px; }
+    .section-intro { max-width: 760px; color: var(--muted); margin-bottom: 36px; }
+    .about-grid { display: grid; grid-template-columns: 1.15fr .85fr; gap: 55px; align-items: start; }
+    .about-copy p { color: var(--muted); margin-bottom: 16px; }
+    .note {
+      background: var(--white); border: 1px solid var(--line);
+      border-left: 4px solid var(--purple); border-radius: 10px;
+      padding: 25px;
+    }
+    .note strong { display: block; color: var(--purple); margin-bottom: 8px; }
+    .note p { color: var(--muted); font-size: .94rem; }
+    .project-group { margin-top: 48px; }
+    .group-heading { display: flex; align-items: baseline; justify-content: space-between; gap: 15px; margin-bottom: 18px; }
+    .group-heading h3 { font-size: 1.35rem; letter-spacing: -.025em; }
+    .group-heading span { color: var(--muted); font-size: .82rem; }
+    .grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; }
+    .card {
+      display: flex; flex-direction: column; align-items: flex-start;
+      min-height: 245px; padding: 26px;
+      background: var(--white); border: 1px solid var(--line);
+      border-radius: 12px; transition: transform .2s, border-color .2s, box-shadow .2s;
+    }
+    .card:hover { transform: translateY(-3px); border-color: #bbaac9; box-shadow: 0 12px 30px rgba(48,35,60,.06); }
+    .tag { color: var(--purple); background: var(--lavender); border-radius: 4px; padding: 4px 9px; font-size: .7rem; font-weight: 800; letter-spacing: .06em; text-transform: uppercase; }
+    .card h4 { font-size: 1.22rem; margin: 15px 0 8px; letter-spacing: -.025em; }
+    .card p { color: var(--muted); font-size: .92rem; margin-bottom: 18px; }
+    .card .meta { margin-top: auto; display: flex; flex-wrap: wrap; gap: 8px; }
+    .meta span { color: #625d6b; background: #f4f1f5; padding: 4px 8px; border-radius: 4px; font-size: .72rem; }
+    .card a { margin-top: 19px; color: var(--purple); font-size: .88rem; font-weight: 800; }
+    .card a:hover { text-decoration: underline; }
+    .research-list { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
+    .research-item { padding: 23px 25px; background: var(--white); border: 1px solid var(--line); border-radius: 10px; }
+    .research-item h3 { color: var(--purple); font-size: 1.08rem; margin-bottom: 7px; }
+    .research-item p { color: var(--muted); font-size: .91rem; }
+    .timeline { border-left: 2px solid #d9cde2; margin: 30px 0 0 7px; padding-left: 27px; display: grid; gap: 28px; }
+    .time-item { position: relative; }
+    .time-item:before { content: ""; position: absolute; width: 11px; height: 11px; border-radius: 50%; background: var(--purple); left: -34px; top: 8px; }
+    .time-item strong { display: block; color: var(--purple); margin-bottom: 5px; }
+    .time-item p { color: var(--muted); max-width: 760px; }
+    .skills { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 25px; }
+    .skills span { border: 1px solid #d9d1df; background: var(--white); color: #51465c; border-radius: 6px; padding: 8px 13px; font-size: .87rem; }
+    .skills-note { margin-top: 20px; color: var(--muted); font-size: .88rem; }
+    .contact { background: var(--purple-dark); color: white; border-top: 0; }
+    .contact .section-kicker { color: #d9c7e7; }
+    .contact p { color: #e0d9e6; max-width: 680px; margin: 15px 0 27px; }
+    .contact .button { background: white; color: var(--purple-dark); }
+    footer { padding: 24px 0; color: var(--muted); font-size: .82rem; text-align: center; }
+    @media (max-width: 760px) {
+      nav { padding: 15px 0; align-items: flex-start; flex-direction: column; }
+      .menu { gap: 13px 18px; }
+      .hero { padding: 76px 0 70px; }
+      section { padding: 62px 0; }
+      .about-grid, .grid, .research-list { grid-template-columns: 1fr; }
+      .about-grid { gap: 25px; }
+      .card { min-height: auto; }
+      .group-heading { align-items: flex-start; flex-direction: column; gap: 2px; }
+    }
+  </style>
 </head>
-
 <body>
+  <header>
+    <nav class="wrap" aria-label="Navegação principal">
+      <a class="brand" href="#inicio">Vladimir Sejas.</a>
+      <div class="menu">
+        <a href="#trajetoria">Trajetória</a>
+        <a href="#projetos">Projetos</a>
+        <a href="#pesquisas">Pesquisas</a>
+        <a href="#formacao">Formação técnica</a>
+        <a href="#contato">Contato</a>
+      </div>
+    </nav>
+  </header>
 
-    <header>
-        <div class="container">
-            <nav>
-                <a href="#" class="logo">Vladimir Sejas.</a>
-
-                <div class="menu">
-                    <a href="#sobre">Sobre</a>
-                    <a href="#projetos">Projetos</a>
-                    <a href="#pesquisas">Pesquisas</a>
-                    <a href="#competencias">Competências</a>
-                    <a href="#contato">Contato</a>
-                </div>
-            </nav>
+  <main>
+    <section class="hero" id="inicio" style="border-top:0">
+      <div class="wrap">
+        <span class="eyebrow">Portfólio acadêmico e tecnológico</span>
+        <h1>Ideias que ganham forma.<br><span>Tecnologia aplicada a problemas reais.</span></h1>
+        <p class="lead">Sou Vladimir Sejas, estudante de Tecnologia em Inteligência Artificial na FATEC Rio Claro. Reúno aqui projetos, pesquisas e experiências desenvolvidos durante minha formação, com interesse especial em dados, sistemas inteligentes e aplicações socialmente relevantes.</p>
+        <div class="actions">
+          <a class="button" href="#projetos">Explorar projetos</a>
+          <a class="button secondary" href="https://github.com/vladimirsejas" target="_blank" rel="noopener noreferrer">Acessar GitHub</a>
         </div>
-    </header>
+      </div>
+    </section>
 
-    <main>
-
-        <section class="hero">
-            <div class="container">
-                <span class="etiqueta">PORTFÓLIO ACADÊMICO E TECNOLÓGICO</span>
-
-                <h1>
-                    Aprendizado, pesquisa e
-                    <span>tecnologia em construção.</span>
-                </h1>
-
-                <p>
-                    Sou estudante de Tecnologia em Inteligência Artificial
-                    na FATEC Rio Claro. Este espaço reúne minha trajetória
-                    acadêmica, projetos, pesquisas e experiências de
-                    desenvolvimento tecnológico.
-                </p>
-
-                <a href="#projetos" class="botao">
-                    Conheça meus projetos
-                </a>
-            </div>
-        </section>
-
-        <section class="sobre" id="sobre">
-            <div class="container">
-                <div class="subtitulo">Minha trajetória</div>
-                <h2>Conhecimento que se transforma em projetos.</h2>
-
-                <p class="descricao">
-                    Minha formação em Inteligência Artificial envolve
-                    programação, análise de dados, desenvolvimento de
-                    sistemas, pesquisa e aplicação de tecnologia a
-                    problemas reais.
-
-                    Este portfólio documenta não apenas os resultados,
-                    mas também o processo de aprendizagem, as decisões
-                    técnicas e a evolução de cada trabalho.
-                </p>
-            </div>
-        </section>
-
-        <section id="projetos">
-            <div class="container">
-                <div class="subtitulo">Desenvolvimento</div>
-                <h2>Projetos em destaque</h2>
-
-                <p class="descricao">
-                    Sistemas e soluções desenvolvidos durante minha
-                    trajetória acadêmica e em iniciativas independentes.
-                    Cada projeto terá sua própria documentação.
-                </p>
-
-                <div class="grade">
-
-                    <article class="card">
-                        <h3>MISM</h3>
-                        <p>
-                            Monitoramento Inteligente da Saúde da Mulher.
-                            Projeto voltado à organização de informações,
-                            indicadores e orientação em saúde.
-                        </p>
-                    </article>
-
-                    <article class="card">
-                        <h3>MISM2</h3>
-                        <p>
-                            Desenvolvimento de análises epidemiológicas,
-                            painel de informações e recursos de apoio
-                            à orientação de mulheres.
-                        </p>
-                    </article>
-
-                    <article class="card">
-                        <h3>MISM3</h3>
-                        <p>
-                            Evolução para orientação territorial,
-                            organização de serviços e análise de
-                            informações sobre o município.
-                        </p>
-                    </article>
-
-                    <article class="card">
-                        <h3>Achei, Encontrei</h3>
-                        <p>
-                            Proposta de plataforma inteligente para
-                            conectar pessoas que perderam objetos
-                            àquelas que os encontraram.
-                        </p>
-                    </article>
-
-                </div>
-            </div>
-        </section>
-
-        <section id="pesquisas">
-            <div class="container">
-                <div class="subtitulo">Investigação e conhecimento</div>
-                <h2>Pesquisas e produção acadêmica</h2>
-
-                <div class="grade">
-
-                    <article class="card">
-                        <h3>PySUS e dados públicos</h3>
-                        <p>
-                            Exploração e processamento de dados
-                            epidemiológicos provenientes de bases
-                            públicas de saúde.
-                        </p>
-                    </article>
-
-                    <article class="card">
-                        <h3>Iniciação científica</h3>
-                        <p>
-                            Estudos sobre impactos socioambientais
-                            de data centers no Brasil.
-                        </p>
-                    </article>
-
-                    <article class="card">
-                        <h3>Seminários acadêmicos</h3>
-                        <p>
-                            Trabalhos práticos envolvendo programação,
-                            análise de dados e tecnologias de
-                            Inteligência Artificial.
-                        </p>
-                    </article>
-
-                </div>
-            </div>
-        </section>
-
-        <section id="competencias">
-            <div class="container">
-                <div class="subtitulo">Formação técnica</div>
-                <h2>Conhecimentos e tecnologias</h2>
-
-                <p class="descricao">
-                    Tecnologias e ferramentas presentes nos trabalhos
-                    desenvolvidos até o momento.
-                </p>
-
-                <div class="competencias">
-                    <span>Python</span>
-                    <span>HTML</span>
-                    <span>CSS</span>
-                    <span>JavaScript</span>
-                    <span>Git</span>
-                    <span>GitHub</span>
-                    <span>Pandas</span>
-                    <span>SQL</span>
-                    <span>Streamlit</span>
-                    <span>DuckDB</span>
-                    <span>PySUS</span>
-                    <span>Análise de dados</span>
-                </div>
-            </div>
-        </section>
-
-        <section class="contato" id="contato">
-            <div class="container">
-                <div class="subtitulo">Conexões</div>
-                <h2>Conhecimento compartilhado constrói oportunidades.</h2>
-
-                <p class="descricao">
-                    Este portfólio está em desenvolvimento e será
-                    atualizado continuamente com novos projetos,
-                    pesquisas e resultados acadêmicos.
-                </p>
-
-                <a class="botao"
-                   href="https://github.com/vladimirsejas"
-                   target="_blank"
-                   rel="noopener noreferrer">
-                    Meu GitHub
-                </a>
-            </div>
-        </section>
-
-    </main>
-
-    <footer>
-        <div class="container">
-            Vladimir Sejas · Portfólio Digital · FATEC Rio Claro · 2026
+    <section id="trajetoria">
+      <div class="wrap">
+        <div class="section-kicker">Quem sou e como trabalho</div>
+        <h2>Uma trajetória em construção, com propósito e prática.</h2>
+        <div class="about-grid">
+          <div class="about-copy">
+            <p>Minha formação em Inteligência Artificial começou em agosto de 2025, na FATEC Rio Claro. Desde então, venho construindo uma base que combina programação, estruturas de dados, desenvolvimento de aplicações, análise e mineração de dados.</p>
+            <p>Tenho interesse em aproximar tecnologia e realidade: transformar dados em informação útil, organizar conhecimento e desenvolver ferramentas que ajudem pessoas e instituições a compreender problemas e tomar decisões melhores.</p>
+            <p>Minha experiência profissional na área de Radiologia também influencia meu olhar para soluções tecnológicas: conheço de perto a importância do conhecimento técnico, dos processos e da experiência acumulada no trabalho.</p>
+          </div>
+          <aside class="note">
+            <strong>O que este portfólio representa</strong>
+            <p>Uma seleção de trabalhos e aprendizados reais. Os projetos são apresentados conforme seu estágio: concluído, em desenvolvimento, pesquisa ou estudo acadêmico. A intenção é mostrar evolução e participação com clareza, sem confundir proposta com funcionalidade pronta.</p>
+          </aside>
         </div>
-    </footer>
+        <div class="timeline" aria-label="Linha do tempo acadêmica">
+          <div class="time-item">
+            <strong>2025 · Fundamentos e primeiras aplicações</strong>
+            <p>Início da graduação, lógica e programação em Python, orientação a objetos, estruturas de dados, consumo de APIs e primeiros projetos acadêmicos.</p>
+          </div>
+          <div class="time-item">
+            <strong>2026 · Projetos aplicados e pesquisa com dados</strong>
+            <p>Ampliação dos trabalhos para mineração de dados, análise epidemiológica, sistemas de informação, dashboards e soluções voltadas a problemas reais.</p>
+          </div>
+          <div class="time-item">
+            <strong>Em continuidade · Pesquisa e desenvolvimento</strong>
+            <p>Aprofundamento em Inteligência Artificial aplicada, qualidade de dados, arquitetura de sistemas e documentação do conhecimento técnico.</p>
+          </div>
+        </div>
+      </div>
+    </section>
 
+    <section id="projetos">
+      <div class="wrap">
+        <div class="section-kicker">Construção e desenvolvimento</div>
+        <h2>Projetos selecionados</h2>
+        <p class="section-intro">Uma curadoria dos trabalhos que melhor representam minha evolução. Os repositórios guardam o histórico técnico; aqui, cada projeto é apresentado pelo problema, pela abordagem e pelo que demonstra.</p>
+
+        <div class="project-group">
+          <div class="group-heading"><h3>Projetos de maior continuidade</h3><span>Em desenvolvimento e evolução</span></div>
+          <div class="grid">
+            <article class="card">
+              <span class="tag">Projeto principal</span>
+              <h4>MISM — Monitoramento Inteligente da Saúde da Mulher</h4>
+              <p>Projeto acadêmico de inteligência analítica e informação em saúde. Reúne análise de dados de internações, indicadores e recursos de orientação. MISM2 é o módulo de inteligência; MISM3 amplia a proposta para orientação territorial e organização de serviços. São componentes relacionados do mesmo esforço, não três projetos independentes.</p>
+              <div class="meta"><span>Python</span><span>JavaScript</span><span>Dados públicos</span><span>Visualização</span></div>
+              <a href="https://github.com/vladimirsejas/MISM3" target="_blank" rel="noopener noreferrer">Consultar repositório MISM3 ↗</a>
+              <a href="https://github.com/vladimirsejas/MISM2" target="_blank" rel="noopener noreferrer">Consultar módulo MISM2 ↗</a>
+            </article>
+            <article class="card">
+              <span class="tag">Iniciativa autoral</span>
+              <h4>Achei, Encontrei</h4>
+              <p>Proposta de plataforma para aproximar pessoas que perderam objetos daquelas que os encontraram. O projeto explora uma arquitetura de aplicação com backend e recursos de busca, com atenção à privacidade e à organização dos dados.</p>
+              <div class="meta"><span>Python</span><span>FastAPI</span><span>PostgreSQL</span><span>Busca inteligente · proposta</span></div>
+              <a href="https://github.com/vladimirsejas/achei_encontrei" target="_blank" rel="noopener noreferrer">Consultar repositório ↗</a>
+            </article>
+          </div>
+        </div>
+
+        <div class="project-group">
+          <div class="group-heading"><h3>Ciência de dados e pesquisa</h3><span>Trabalhos acadêmicos</span></div>
+          <div class="grid">
+            <article class="card">
+              <span class="tag">Pesquisa aplicada</span>
+              <h4>Mineração Epidemiológica da Dengue</h4>
+              <p>Aplicação acadêmica com dados públicos do DATASUS/SINAN e uso da biblioteca PySUS. Explora preparação de dados, análise estatística, sazonalidade, padrões regionais, clusterização e visualização.</p>
+              <div class="meta"><span>PySUS</span><span>Python</span><span>Pandas</span><span>Mineração de dados</span></div>
+              <a href="https://github.com/vladimirsejas/seminario" target="_blank" rel="noopener noreferrer">Consultar projeto ↗</a>
+            </article>
+            <article class="card">
+              <span class="tag">Pesquisa acadêmica</span>
+              <h4>Análise de padrões relacionados à queda da natalidade</h4>
+              <p>Estudo que aplica técnicas de mineração de dados para investigar padrões associados à queda da natalidade, com dados, notebooks e resultados documentados no repositório.</p>
+              <div class="meta"><span>Python</span><span>Mineração de dados</span><span>Notebooks</span></div>
+              <a href="https://github.com/vladimirsejas/mineracao_dados_natalidade" target="_blank" rel="noopener noreferrer">Consultar pesquisa ↗</a>
+            </article>
+            <article class="card">
+              <span class="tag">Ferramenta de pesquisa</span>
+              <h4>Minerador de Dados Acadêmicos</h4>
+              <p>Pipeline para coletar e organizar artigos acadêmicos de fontes públicas, extrair informações bibliográficas e exportar resultados para análise.</p>
+              <div class="meta"><span>Python</span><span>Requests</span><span>BeautifulSoup</span><span>Pandas</span></div>
+              <a href="https://github.com/vladimirsejas/mineradordatacenter" target="_blank" rel="noopener noreferrer">Consultar repositório ↗</a>
+            </article>
+          </div>
+        </div>
+
+        <div class="project-group">
+          <div class="group-heading"><h3>Aplicações e projetos acadêmicos</h3><span>Fundamentos colocados em prática</span></div>
+          <div class="grid">
+            <article class="card">
+              <span class="tag">Estrutura de dados</span>
+              <h4>MoodFlow — Sistema de Playlist</h4>
+              <p>Aplicação em Python para organizar bibliotecas musicais e filas de reprodução, utilizando orientação a objetos, listas encadeadas e filas FIFO.</p>
+              <div class="meta"><span>Python</span><span>POO</span><span>Estruturas de dados</span></div>
+              <a href="https://github.com/vladimirsejas/sistemaplaylistMoodFlow" target="_blank" rel="noopener noreferrer">Consultar versão MoodFlow ↗</a>
+            </article>
+            <article class="card">
+              <span class="tag">Projeto acadêmico</span>
+              <h4>Sistema de Cantina FATEC</h4>
+              <p>Sistema de simulação de cantina com controle de estoque por lotes, registro de vendas, relatórios e persistência de dados.</p>
+              <div class="meta"><span>Python</span><span>POO</span><span>Faker</span><span>Pickle</span></div>
+              <a href="https://github.com/vladimirsejas/cantina-Fatec-2026" target="_blank" rel="noopener noreferrer">Consultar repositório ↗</a>
+            </article>
+            <article class="card">
+              <span class="tag">Automação e dados</span>
+              <h4>Álbum de Figurinhas da Copa 2026</h4>
+              <p>Aplicação que evoluiu de um cadastro manual para o carregamento de uma base externa, controle de coleção, repetidas, sorteios e persistência.</p>
+              <div class="meta"><span>Python</span><span>Pandas</span><span>Excel</span><span>JSON</span></div>
+              <a href="https://github.com/vladimirsejas/figurinhas_da_copa" target="_blank" rel="noopener noreferrer">Consultar repositório ↗</a>
+            </article>
+            <article class="card">
+              <span class="tag">Desenvolvimento de APIs</span>
+              <h4>Consumo de APIs</h4>
+              <p>Projeto acadêmico cliente-servidor: uma API construída com FastAPI e um cliente Python que realiza consultas a um catálogo de filmes.</p>
+              <div class="meta"><span>Python</span><span>FastAPI</span><span>HTTP</span><span>Requests</span></div>
+              <a href="https://github.com/vladimirsejas/miniprojeto_ConsumoAPIs" target="_blank" rel="noopener noreferrer">Consultar repositório ↗</a>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="pesquisas">
+      <div class="wrap">
+        <div class="section-kicker">Investigação e produção acadêmica</div>
+        <h2>Pesquisa também faz parte do desenvolvimento.</h2>
+        <p class="section-intro">Além de construir aplicações, procuro compreender os dados, os métodos e os problemas que dão origem a cada solução.</p>
+        <div class="research-list">
+          <article class="research-item">
+            <h3>Dados públicos de saúde</h3>
+            <p>Estudo e utilização de bases do DATASUS, com PySUS, para estruturar dados epidemiológicos e apoiar análises.</p>
+          </article>
+          <article class="research-item">
+            <h3>Mineração de dados e demografia</h3>
+            <p>Investigação de padrões relacionados à natalidade, aplicando técnicas de análise e mineração de dados.</p>
+          </article>
+          <article class="research-item">
+            <h3>Pesquisa e ferramentas acadêmicas</h3>
+            <p>Desenvolvimento de ferramentas para coleta, organização e exploração de publicações científicas em fontes públicas.</p>
+          </article>
+          <article class="research-item">
+            <h3>Comunicação técnica</h3>
+            <p>Seminários, documentação e demonstrações práticas para apresentar métodos, bibliotecas e resultados de forma compreensível.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="formacao">
+      <div class="wrap">
+        <div class="section-kicker">Formação técnica</div>
+        <h2>Ferramentas e conhecimentos em prática.</h2>
+        <p class="section-intro">Tecnologias utilizadas nos repositórios e trabalhos apresentados. A lista representa experiência prática em diferentes níveis, não uma declaração de domínio avançado de todas elas.</p>
+        <div class="skills">
+          <span>Python</span><span>JavaScript</span><span>HTML</span><span>CSS</span>
+          <span>Git</span><span>GitHub</span><span>Pandas</span><span>NumPy</span>
+          <span>PySUS</span><span>Streamlit</span><span>DuckDB</span><span>SQLite</span>
+          <span>FastAPI</span><span>Requests</span><span>BeautifulSoup</span>
+          <span>SQL</span><span>Plotly</span><span>Pytest</span><span>JSON</span>
+          <span>Estruturas de dados</span><span>Programação orientada a objetos</span>
+          <span>Mineração de dados</span><span>Análise exploratória</span>
+        </div>
+        <p class="skills-note">A formação continua em andamento. Novas tecnologias e competências serão acrescentadas conforme forem aplicadas e demonstradas em projetos.</p>
+      </div>
+    </section>
+
+    <section class="contact" id="contato">
+      <div class="wrap">
+        <div class="section-kicker">Conexões</div>
+        <h2>Vamos conversar sobre tecnologia, pesquisa e oportunidades.</h2>
+        <p>Este portfólio acompanha minha trajetória acadêmica e será atualizado à medida que os projetos avancem e novos resultados sejam validados.</p>
+        <a class="button" href="https://github.com/vladimirsejas" target="_blank" rel="noopener noreferrer">Visitar meu GitHub ↗</a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap">Vladimir Sejas · Portfólio Acadêmico e Tecnológico · FATEC Rio Claro · 2026</div>
+  </footer>
 </body>
 </html>
