@@ -206,6 +206,37 @@
       .stat { padding: 11px 14px; }
       .stat strong { font-size: 1.6rem; }
     }
+
+    /* ---- Tecnologias interativas: fogos e teia (acrescentado) ---- */
+    .skills { position:relative; }
+    .skills-dica { margin-top:22px; color:var(--muted); font-size:.9rem; }
+    .skills .skill {
+      position:relative; font:inherit; font-size:.87rem; cursor:pointer;
+      border:1px solid #d9d1df; background:var(--white); color:#51465c;
+      border-radius:6px; padding:8px 13px;
+      transition:border-color .2s, background .2s, transform .2s;
+    }
+    .skills .skill:after { content:""; position:absolute; top:5px; right:5px; width:5px; height:5px; border-radius:50%; background:#9b7db5; }
+    .skills .skill:hover, .skills .skill:focus-visible, .skills .skill.ativo { border-color:var(--purple); background:var(--lavender); transform:translateY(-2px); }
+    .burst-layer { position:absolute; left:0; top:0; width:100%; height:0; overflow:visible; pointer-events:none; z-index:20; }
+    .burst-layer svg { position:absolute; left:0; top:0; width:1px; height:1px; overflow:visible; }
+    .burst-layer line { stroke:#b9a7cf; stroke-width:1.5; stroke-dasharray:var(--len); stroke-dashoffset:var(--len); animation:teia-desenha .45s .1s ease-out forwards; }
+    .burst-pill {
+      position:absolute; white-space:nowrap; background:#fff; border:1px solid var(--purple);
+      color:var(--purple-dark); border-radius:999px; padding:5px 12px; font-size:.78rem; font-weight:700;
+      box-shadow:0 8px 22px rgba(48,35,60,.14);
+      animation:fogo-pop .55s cubic-bezier(.2,1.3,.4,1) both;
+    }
+    .burst-dot { position:absolute; width:7px; height:7px; border-radius:50%; margin:-3px 0 0 -3px; animation:fogo-faisca .85s ease-out forwards; }
+    @keyframes teia-desenha { to { stroke-dashoffset:0; } }
+    @keyframes fogo-pop { from { transform:translate(var(--ox),var(--oy)) scale(.2); opacity:0; } to { transform:none; opacity:1; } }
+    @keyframes fogo-faisca { from { transform:translate(0,0) scale(1); opacity:1; } to { transform:translate(var(--dx),var(--dy)) scale(.2); opacity:0; } }
+    @media (prefers-reduced-motion: reduce) {
+      .burst-pill, .burst-dot, .burst-layer line { animation:none !important; }
+      .burst-dot { display:none; }
+      .burst-layer line { stroke-dashoffset:0; }
+      .skills .skill { transition:none; }
+    }
   </style>
 </head>
 <body>
@@ -581,14 +612,35 @@
         <div class="section-kicker">Formação técnica</div>
         <h2>Ferramentas e conhecimentos em prática.</h2>
         <p class="section-intro">Tecnologias utilizadas nos repositórios e trabalhos apresentados. A lista representa experiência prática em diferentes níveis, não uma declaração de domínio avançado de todas elas.</p>
-        <div class="skills">
-          <span>Python</span><span>JavaScript</span><span>HTML</span><span>CSS</span>
-          <span>Git</span><span>GitHub</span><span>Pandas</span><span>NumPy</span>
-          <span>PySUS</span><span>Streamlit</span><span>DuckDB</span><span>SQLite</span>
-          <span>FastAPI</span><span>Requests</span><span>BeautifulSoup</span>
-          <span>SQL</span><span>Plotly</span><span>Pytest</span><span>JSON</span>
-          <span>Estruturas de dados</span><span>Programação orientada a objetos</span>
-          <span>Mineração de dados</span><span>Análise exploratória</span>
+        <p class="skills-dica">Passe o mouse (ou toque) nas tecnologias com um pontinho roxo para ver em quais projetos cada uma aparece.</p>
+        <div class="skills" id="tecnologias">
+          <button type="button" class="skill" data-projetos="MISM3|MISM2|Achei, Encontrei|RadCraft-AI|Mineração da Dengue|PySUS (contribuição)|Natalidade|Minerador de Dados|Classificador de RX|MoodFlow|Cantina FATEC|Álbum da Copa|Sistema Biblioteca|Consumo de APIs">Python</button>
+          <button type="button" class="skill" data-projetos="MISM3">JavaScript</button>
+          <button type="button" class="skill" data-projetos="Este portfólio">HTML</button>
+          <button type="button" class="skill" data-projetos="Este portfólio">CSS</button>
+          <button type="button" class="skill" data-projetos="Todos os repositórios">Git</button>
+          <button type="button" class="skill" data-projetos="Todos os repositórios">GitHub</button>
+          <button type="button" class="skill" data-projetos="Mineração da Dengue|Minerador de Dados|Álbum da Copa">Pandas</button>
+          <button type="button" class="skill" data-projetos="Sistema Biblioteca">NumPy</button>
+          <button type="button" class="skill" data-projetos="Mineração da Dengue|PySUS (contribuição)">PySUS</button>
+          <button type="button" class="skill" data-projetos="MISM2|RadCraft-AI">Streamlit</button>
+          <button type="button" class="skill" data-projetos="MISM2">DuckDB</button>
+          <span>SQLite</span>
+          <button type="button" class="skill" data-projetos="Achei, Encontrei|Consumo de APIs">FastAPI</button>
+          <button type="button" class="skill" data-projetos="Minerador de Dados|Consumo de APIs">Requests</button>
+          <button type="button" class="skill" data-projetos="Minerador de Dados">BeautifulSoup</button>
+          <span>SQL</span>
+          <span>Plotly</span>
+          <span>Pytest</span>
+          <button type="button" class="skill" data-projetos="Álbum da Copa">JSON</button>
+          <button type="button" class="skill" data-projetos="MoodFlow">Estruturas de dados</button>
+          <button type="button" class="skill" data-projetos="MoodFlow|Cantina FATEC">Programação orientada a objetos</button>
+          <button type="button" class="skill" data-projetos="Mineração da Dengue|Natalidade">Mineração de dados</button>
+          <span>Análise exploratória</span>
+          <button type="button" class="skill" data-projetos="Sistema Biblioteca">OpenCV</button>
+          <button type="button" class="skill" data-projetos="Sistema Biblioteca">MediaPipe</button>
+          <button type="button" class="skill" data-projetos="Classificador de RX">Matplotlib</button>
+          <button type="button" class="skill" data-projetos="Achei, Encontrei">PostgreSQL</button>
         </div>
         <p class="skills-note">A formação continua em andamento. Novas tecnologias e competências serão acrescentadas conforme forem aplicadas e demonstradas em projetos.</p>
       </div>
@@ -607,5 +659,108 @@
   <footer>
     <div class="wrap">Vladimir Queiroz Sejas · Portfólio Acadêmico e Tecnológico · FATEC Rio Claro · 2026</div>
   </footer>
+
+  <script>
+  (function () {
+    var box = document.getElementById('tecnologias');
+    if (!box) return;
+    var NS = 'http://www.w3.org/2000/svg';
+    var cores = ['#59436f', '#9b7db5', '#647c70', '#b89a5e', '#d9c7e7'];
+    var layer = document.createElement('div');
+    layer.className = 'burst-layer';
+    layer.setAttribute('aria-hidden', 'true');
+    box.appendChild(layer);
+    var atual = null;
+
+    function limpar() {
+      layer.innerHTML = '';
+      if (atual) { atual.classList.remove('ativo'); atual = null; }
+    }
+
+    function abrir(chip) {
+      if (atual === chip) return;
+      limpar();
+      atual = chip;
+      chip.classList.add('ativo');
+      var nomes = chip.getAttribute('data-projetos').split('|');
+      var b = box.getBoundingClientRect();
+      var c = chip.getBoundingClientRect();
+      var cx = c.left - b.left + c.width / 2;
+      var cy = c.top - b.top + c.height / 2;
+
+      var svg = document.createElementNS(NS, 'svg');
+      layer.appendChild(svg);
+      var pills = nomes.map(function (n) {
+        var p = document.createElement('span');
+        p.className = 'burst-pill';
+        p.textContent = n;
+        layer.appendChild(p);
+        return p;
+      });
+
+      var borda = cx < 330 ? 1 : (box.clientWidth - cx < 330 ? -1 : 0);
+      var capacidades = borda ? [4, 6, 8] : [6, 10, 14];
+      var raios = [100, 175, 250];
+      var i = 0;
+      capacidades.forEach(function (cap, anel) {
+        var grupo = pills.slice(i, i + cap);
+        i += cap;
+        var n = grupo.length;
+        grupo.forEach(function (p, k) {
+          var ang;
+          if (borda) { ang = (borda > 0 ? 0 : Math.PI) - Math.PI / 2 * borda + borda * (k + 0.5) * Math.PI / n; }
+          else { ang = -Math.PI / 2 + (k + (anel % 2 ? 0.5 : 0)) * 2 * Math.PI / n; }
+          var x = cx + raios[anel] * 1.5 * Math.cos(ang);
+          var y = cy + raios[anel] * 0.85 * Math.sin(ang);
+          var w = p.offsetWidth, h = p.offsetHeight;
+          x = Math.min(Math.max(x, w / 2 + 4), box.clientWidth - w / 2 - 4);
+          p.style.left = (x - w / 2) + 'px';
+          p.style.top = (y - h / 2) + 'px';
+          p.style.setProperty('--ox', (cx - x) + 'px');
+          p.style.setProperty('--oy', (cy - y) + 'px');
+          p.style.animationDelay = (k * 35) + 'ms';
+          var ln = document.createElementNS(NS, 'line');
+          var len = Math.hypot(x - cx, y - cy);
+          ln.setAttribute('x1', cx); ln.setAttribute('y1', cy);
+          ln.setAttribute('x2', x);  ln.setAttribute('y2', y);
+          ln.style.setProperty('--len', len);
+          svg.appendChild(ln);
+        });
+      });
+
+      for (var d = 0; d < 18; d++) {
+        var a = Math.random() * 2 * Math.PI;
+        var dist = 60 + Math.random() * 110;
+        var dot = document.createElement('span');
+        dot.className = 'burst-dot';
+        dot.style.left = cx + 'px';
+        dot.style.top = cy + 'px';
+        dot.style.background = cores[d % cores.length];
+        dot.style.setProperty('--dx', (Math.cos(a) * dist * 1.3) + 'px');
+        dot.style.setProperty('--dy', (Math.sin(a) * dist) + 'px');
+        layer.appendChild(dot);
+      }
+    }
+
+    Array.prototype.forEach.call(box.querySelectorAll('.skill'), function (chip) {
+      var nomes = chip.getAttribute('data-projetos').split('|');
+      chip.setAttribute('aria-label', chip.textContent + ': presente em ' + nomes.join(', '));
+      chip.addEventListener('mouseenter', function () { abrir(chip); });
+      chip.addEventListener('mouseleave', limpar);
+      chip.addEventListener('focus', function () { abrir(chip); });
+      chip.addEventListener('blur', limpar);
+      chip.addEventListener('pointerdown', function (e) {
+        if (e.pointerType === 'touch') {
+          e.preventDefault();
+          if (atual === chip) limpar(); else abrir(chip);
+        }
+      });
+    });
+    document.addEventListener('pointerdown', function (e) {
+      if (!e.target.closest || !e.target.closest('.skill')) limpar();
+    });
+    document.addEventListener('keydown', function (e) { if (e.key === 'Escape') limpar(); });
+  })();
+  </script>
 </body>
 </html>
