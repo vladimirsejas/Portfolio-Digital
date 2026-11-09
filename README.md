@@ -13,6 +13,12 @@ Portfólio pessoal que reúne minha trajetória na graduação em Tecnologia em 
 
 O site é construído com HTML e CSS, sem framework, processo de compilação ou dependências de instalação. Para visualizar localmente, basta abrir o arquivo `index.html` em um navegador.
 
+## Projetos e contribuições em destaque
+
+- **MISM — Monitoramento Inteligente da Saúde da Mulher:** projeto coletivo e organizacional, desenvolvido em conjunto com colegas, de maior abrangência e integração de diferentes frentes. MISM2 é um componente dessa iniciativa; MISM3 permanece uma iniciativa independente.
+- **PySUS — Mineração Epidemiológica da Dengue:** contribuição técnica em pesquisa e desenvolvimento com dados DATASUS/SINAN, investigação e uso da biblioteca PySUS, preparação de dados com Python/Pandas e estruturação de análises epidemiológicas. O repositório documenta o projeto e seus métodos; números simulados em demonstrações são identificados como tais.
+- **Sistema Biblioteca — Interface por gestos:** projeto iniciado em 2025 e evoluído em 2026 com visão computacional, câmera e reconhecimento de gestos das mãos para interação com a interface, utilizando MediaPipe, OpenCV e NumPy.
+
 ## Como os projetos são apresentados
 
 O portfólio diferencia projetos acadêmicos, iniciativas autorais, pesquisas em desenvolvimento e ferramentas em estruturação. O estágio de cada trabalho deve ser lido conforme o que está implementado e documentado em seu respectivo repositório.
