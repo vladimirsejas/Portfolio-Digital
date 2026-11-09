@@ -44,7 +44,22 @@
     .menu { display: flex; align-items: center; gap: 25px; flex-wrap: wrap; }
     .menu a { color: var(--muted); font-size: .88rem; }
     .menu a:hover { color: var(--purple); }
-    .hero { padding: 112px 0 105px; }
+
+    .hero { padding: 82px 0 78px; }
+    .hero-layout { display:grid; grid-template-columns:minmax(0,1.12fr) minmax(320px,.88fr); align-items:center; gap:34px; }
+    .hero-copy { position:relative; z-index:2; }
+    .vitruvian-stage { position:relative; width:min(100%,440px); aspect-ratio: .82; margin:0 auto; display:grid; place-items:center; isolation:isolate; }
+    .vitruvian-stage:before { content:""; position:absolute; width:88%; aspect-ratio:1; border:1px solid rgba(89,67,111,.22); border-radius:50%; animation:orbit-turn 64s linear infinite; }
+    .vitruvian-stage:after { content:""; position:absolute; width:72%; aspect-ratio:1; border:1px solid rgba(89,67,111,.17); transform:rotate(45deg); animation:orbit-reverse 82s linear infinite; }
+    .vitruvian-orbit { position:absolute; width:96%; aspect-ratio:1; border:1px dashed rgba(89,67,111,.18); border-radius:50%; animation:orbit-reverse 110s linear infinite; }
+    .vitruvian-orbit:before,.vitruvian-orbit:after { content:""; position:absolute; left:50%; top:-5px; width:9px; height:9px; border-radius:50%; background:#8c769e; transform:translateX(-50%); }
+    .vitruvian-orbit:after { top:auto; bottom:-5px; width:5px; height:5px; background:#a99a83; }
+    .vitruvian-image { position:relative; z-index:1; display:block; width:80%; height:94%; object-fit:contain; mix-blend-mode:multiply; filter:contrast(.97) saturate(.78); animation:figure-breathe 9s ease-in-out infinite; }
+    .art-credit { position:absolute; z-index:2; bottom:-4px; right:4%; color:var(--muted); font-size:.68rem; opacity:.78; }
+    @keyframes orbit-turn { to { transform:rotate(360deg); } }
+    @keyframes orbit-reverse { to { transform:rotate(-360deg); } }
+    @keyframes figure-breathe { 0%,100% { transform:translateY(0); } 50% { transform:translateY(-5px); } }
+
     .eyebrow {
       display: inline-flex; align-items: center; gap: 9px;
       color: var(--purple); background: var(--lavender);
@@ -121,6 +136,10 @@
     footer { padding: 24px 0; color: var(--muted); font-size: .82rem; text-align: center; }
     @media (max-width: 760px) {
       nav { padding: 15px 0; align-items: flex-start; flex-direction: column; }
+      .hero-layout { grid-template-columns:1fr; gap:18px; }
+      .vitruvian-stage { width:min(88%,390px); grid-row:1; }
+      .hero-copy { grid-row:2; }
+      .hero { padding:58px 0 60px; }
       .menu { gap: 13px 18px; }
       .hero { padding: 76px 0 70px; }
       section { padding: 62px 0; }
@@ -129,12 +148,18 @@
       .card { min-height: auto; }
       .group-heading { align-items: flex-start; flex-direction: column; gap: 2px; }
     }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior:auto; }
+      .vitruvian-stage:before,.vitruvian-stage:after,.vitruvian-orbit,.vitruvian-image { animation:none !important; }
+      .card,.button { transition:none; }
+    }
   </style>
 </head>
 <body>
   <header>
     <nav class="wrap" aria-label="Navegação principal">
-      <a class="brand" href="#inicio">Vladimir Sejas.</a>
+      <a class="brand" href="#inicio">Vladimir Queiroz Sejas.</a>
       <div class="menu">
         <a href="#trajetoria">Trajetória</a>
         <a href="#projetos">Projetos</a>
@@ -147,14 +172,21 @@
 
   <main>
     <section class="hero" id="inicio" style="border-top:0">
-      <div class="wrap">
-        <span class="eyebrow">Portfólio acadêmico e tecnológico</span>
-        <h1>Ideias que ganham forma.<br><span>Tecnologia aplicada a problemas reais.</span></h1>
-        <p class="lead">Sou Vladimir Sejas, estudante de Tecnologia em Inteligência Artificial na FATEC Rio Claro. Reúno aqui projetos, pesquisas e experiências desenvolvidos durante minha formação, com interesse especial em dados, sistemas inteligentes e aplicações socialmente relevantes.</p>
-        <div class="actions">
-          <a class="button" href="#projetos">Explorar projetos</a>
-          <a class="button secondary" href="https://github.com/vladimirsejas" target="_blank" rel="noopener noreferrer">Acessar GitHub</a>
+      <div class="wrap hero-layout">
+        <div class="hero-copy">
+          <span class="eyebrow">Portfólio acadêmico e tecnológico</span>
+          <h1>Ideias que ganham forma.<br><span>Tecnologia aplicada a problemas reais.</span></h1>
+          <p class="lead">Sou Vladimir Queiroz Sejas, estudante de Tecnologia em Inteligência Artificial na FATEC Rio Claro. Reúno aqui projetos, pesquisas e experiências desenvolvidos durante minha formação, com interesse especial em dados, sistemas inteligentes e aplicações socialmente relevantes.</p>
+          <div class="actions">
+            <a class="button" href="#projetos">Explorar projetos</a>
+            <a class="button secondary" href="https://github.com/vladimirsejas" target="_blank" rel="noopener noreferrer">Acessar GitHub</a>
+          </div>
         </div>
+        <figure class="vitruvian-stage" aria-label="Homem Vitruviano, desenho de Leonardo da Vinci, com elementos geométricos animados suavemente">
+          <div class="vitruvian-orbit" aria-hidden="true"></div>
+          <img class="vitruvian-image" src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Leonardo_da_Vinci-_Vitruvian_Man.JPG" alt="Homem Vitruviano, desenho de Leonardo da Vinci, por volta de 1490">
+          <figcaption class="art-credit"><a href="https://commons.wikimedia.org/wiki/File:Leonardo_da_Vinci-_Vitruvian_Man.JPG" target="_blank" rel="noopener noreferrer">Leonardo da Vinci · c. 1490 · domínio público</a></figcaption>
+        </figure>
       </div>
     </section>
 
@@ -342,7 +374,7 @@
   </main>
 
   <footer>
-    <div class="wrap">Vladimir Sejas · Portfólio Acadêmico e Tecnológico · FATEC Rio Claro · 2026</div>
+    <div class="wrap">Vladimir Queiroz Sejas · Portfólio Acadêmico e Tecnológico · FATEC Rio Claro · 2026</div>
   </footer>
 </body>
 </html>
