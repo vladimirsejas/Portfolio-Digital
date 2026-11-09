@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Portfólio acadêmico e tecnológico de Vladimir Sejas, estudante de Inteligência Artificial na FATEC Rio Claro. Projetos, pesquisas e desenvolvimento de soluções com dados e tecnologia.">
+  <meta name="description" content="Portfólio acadêmico e tecnológico de Vladimir Sejas, estudante de Inteligência Artificial na FATEC Rio Claro. RadCraft-AI, contribuição aceita no PySUS, iniciação científica sobre data centers e projetos de dados e tecnologia.">
   <meta name="theme-color" content="#f7f5f2">
   <title>Vladimir Sejas | Portfólio</title>
   <style>
@@ -154,6 +154,58 @@
       .vitruvian-stage:before,.vitruvian-stage:after,.vitruvian-orbit,.vitruvian-image { animation:none !important; }
       .card,.button { transition:none; }
     }
+
+    /* ---- Destaques (acrescentado) ---- */
+    .stats { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:14px; margin-top:38px; max-width:640px; }
+    .stat { background:var(--white); border:1px solid var(--line); border-radius:12px; padding:14px 16px; }
+    .stat strong { display:block; font-size:1.9rem; line-height:1.1; color:var(--purple); letter-spacing:-.04em; }
+    .stat span { display:block; margin-top:5px; color:var(--muted); font-size:.78rem; line-height:1.4; }
+    .features { display:grid; gap:26px; margin-top:34px; }
+    .feature { display:grid; grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr); background:var(--white); border:1px solid var(--line); border-radius:16px; overflow:hidden; transition:box-shadow .2s, border-color .2s; }
+    .feature:hover { border-color:#bbaac9; box-shadow:0 14px 34px rgba(48,35,60,.08); }
+    .feature:nth-child(even) { grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr); }
+    .feature:nth-child(even) .feature-art { order:2; }
+    .feature-art { display:grid; place-items:center; padding:26px; background:linear-gradient(145deg,var(--lavender),#f3eef7 62%,#e4ebe6); }
+    .feature-art svg { width:100%; max-width:380px; height:auto; }
+    .feature-body { padding:32px 34px; }
+    .feature-body h3 { font-size:1.5rem; letter-spacing:-.035em; line-height:1.22; margin:14px 0 12px; }
+    .feature-body p { color:var(--muted); font-size:.96rem; margin-bottom:13px; }
+    .feature-body .aviso { font-size:.86rem; color:#625d6b; background:#f4f1f5; border-left:3px solid var(--green); border-radius:6px; padding:10px 13px; }
+    .facts { display:flex; flex-wrap:wrap; gap:8px; margin:16px 0 4px; }
+    .facts span { color:#51465c; border:1px solid #d9d1df; background:var(--paper); border-radius:6px; padding:5px 10px; font-size:.78rem; }
+    .feature-link { display:inline-block; margin-top:14px; color:var(--purple); font-weight:800; font-size:.9rem; }
+    .feature-link:hover { text-decoration:underline; }
+    .card-art { display:block; align-self:stretch; width:100%; height:auto; aspect-ratio:16/8; object-fit:cover; object-position:center 32%; border-radius:8px; margin-bottom:18px; filter:saturate(.82) contrast(.98); }
+    .research-item.destaque { grid-column:1 / -1; border-left:4px solid var(--purple); }
+    .research-item.destaque p { margin-top:8px; }
+    .research-item.destaque a { display:inline-block; margin-top:10px; color:var(--purple); font-weight:800; font-size:.88rem; }
+    .art-flow { fill:none; stroke:#9b7db5; stroke-width:2; stroke-dasharray:5 6; animation:art-flow 2.4s linear infinite; }
+    .art-led { animation:art-blink 2.6s ease-in-out infinite; }
+    @keyframes art-flow { to { stroke-dashoffset:-22; } }
+    @keyframes art-blink { 0%,100% { opacity:1; } 50% { opacity:.25; } }
+    @media (max-width: 760px) {
+      .feature, .feature:nth-child(even) { grid-template-columns:1fr; }
+      .feature:nth-child(even) .feature-art { order:0; }
+      .feature-body { padding:24px; }
+      .feature-art { padding:20px; }
+    }
+    @media (max-width: 480px) {
+      .stats { grid-template-columns:1fr; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .art-flow, .art-led { animation:none !important; }
+      .feature { transition:none; }
+    }
+
+    /* ---- Primeira tela em notebooks (acrescentado) ---- */
+    @media (min-width: 761px) {
+      .hero { padding: 48px 0 56px; }
+      h1 { font-size: clamp(2.4rem, 4.3vw, 3.9rem); margin-top: 20px; }
+      .lead { margin: 20px 0 24px; font-size: 1.08rem; }
+      .stats { margin-top: 28px; }
+      .stat { padding: 11px 14px; }
+      .stat strong { font-size: 1.6rem; }
+    }
   </style>
 </head>
 <body>
@@ -161,6 +213,7 @@
     <nav class="wrap" aria-label="Navegação principal">
       <a class="brand" href="#inicio">Vladimir Queiroz Sejas.</a>
       <div class="menu">
+        <a href="#destaques">Destaques</a>
         <a href="#trajetoria">Trajetória</a>
         <a href="#projetos">Projetos</a>
         <a href="#pesquisas">Pesquisas</a>
@@ -181,12 +234,148 @@
             <a class="button" href="#projetos">Explorar projetos</a>
             <a class="button secondary" href="https://github.com/vladimirsejas" target="_blank" rel="noopener noreferrer">Acessar GitHub</a>
           </div>
+          <div class="stats" aria-label="Números do trabalho até aqui">
+            <div class="stat"><strong>9</strong><span>técnicos seniores respondendo ao questionário do RadCraft-AI</span></div>
+            <div class="stat"><strong>1</strong><span>contribuição aceita no PySUS, biblioteca brasileira de código aberto</span></div>
+            <div class="stat"><strong>1.646</strong><span>commits registrados no GitHub em 36 dias de trabalho (set–nov de 2026)</span></div>
+          </div>
         </div>
         <figure class="vitruvian-stage" aria-label="Homem Vitruviano, desenho de Leonardo da Vinci, com elementos geométricos animados suavemente">
           <div class="vitruvian-orbit" aria-hidden="true"></div>
           <img class="vitruvian-image" src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Leonardo_da_Vinci-_Vitruvian_Man.JPG" alt="Homem Vitruviano, desenho de Leonardo da Vinci, por volta de 1490">
           <figcaption class="art-credit"><a href="https://commons.wikimedia.org/wiki/File:Leonardo_da_Vinci-_Vitruvian_Man.JPG" target="_blank" rel="noopener noreferrer">Leonardo da Vinci · c. 1490 · domínio público</a></figcaption>
         </figure>
+      </div>
+    </section>
+
+    <section id="destaques">
+      <div class="wrap">
+        <div class="section-kicker">Em destaque</div>
+        <h2>Três frentes que mostram o que eu faço.</h2>
+        <p class="section-intro">Pesquisa aplicada com profissionais de campo, contribuição a um projeto de código aberto e investigação sobre o impacto da infraestrutura que sustenta a Inteligência Artificial. Cada uma é apresentada com o seu estágio real.</p>
+
+        <div class="features">
+
+          <article class="feature" id="radcraft">
+            <div class="feature-art">
+              <svg viewBox="0 0 360 260" role="img" aria-label="Ilustração: três técnicos experientes enviam seu conhecimento para uma base de casos, que apoia um técnico iniciante">
+                <g fill="#59436f"><circle cx="48" cy="62" r="14"/><circle cx="48" cy="130" r="14"/><circle cx="48" cy="198" r="14"/></g>
+                <g fill="#59436f" opacity=".85"><path d="M24 98 Q48 70 72 98Z"/><path d="M24 166 Q48 138 72 166Z"/><path d="M24 234 Q48 206 72 234Z"/></g>
+                <g class="art-flow"><path d="M78 70 C125 70 125 130 158 130"/><path d="M78 130 L158 130"/><path d="M78 198 C125 198 125 130 158 130"/></g>
+                <rect x="160" y="86" width="72" height="88" rx="10" fill="#fff" stroke="#59436f" stroke-width="2"/>
+                <rect x="172" y="100" width="48" height="8" rx="4" fill="#e9e1f0"/>
+                <rect x="172" y="118" width="36" height="8" rx="4" fill="#e9e1f0"/>
+                <rect x="172" y="136" width="44" height="8" rx="4" fill="#e9e1f0"/>
+                <circle cx="196" cy="160" r="9" fill="#647c70"/>
+                <path d="M191 160 l4 4 l8 -9" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+                <path class="art-flow" d="M234 130 L292 130"/>
+                <polygon points="292,124 304,130 292,136" fill="#9b7db5"/>
+                <circle cx="322" cy="118" r="14" fill="#647c70"/>
+                <path d="M298 154 Q322 126 346 154Z" fill="#647c70" opacity=".85"/>
+                <g font-size="10.5" fill="#716d7c" text-anchor="middle" font-family="Inter, Segoe UI, Arial, sans-serif">
+                  <text x="48" y="254">técnicos seniores</text>
+                  <text x="196" y="200">base de casos</text>
+                  <text x="322" y="176">iniciante</text>
+                </g>
+              </svg>
+            </div>
+            <div class="feature-body">
+              <span class="tag">Pesquisa aplicada · iniciativa autoral · em validação</span>
+              <h3>RadCraft-AI: o saber de quem tem décadas de prática, preservado para quem está começando</h3>
+              <p>Na radiologia, muitas decisões são tomadas em segundos e nunca foram escritas em manual algum: como posicionar um paciente com dor, como compensar a técnica quando o corpo foge do padrão, o que observar antes de expor. Esse conhecimento tende a se perder com a aposentadoria dos profissionais mais experientes.</p>
+              <p>O RadCraft-AI registra esse raciocínio em casos padronizados e o devolve ao técnico iniciante como apoio à decisão, com o objetivo de reduzir repetições de exame e a exposição do paciente à radiação (princípio ALARA). Idealizei o projeto a partir da minha experiência na radiologia, e a pesquisa é conduzida na FATEC Rio Claro.</p>
+              <div class="facts"><span>Escopo e arquitetura v2.0</span><span>Questionário de 44 páginas e 13 partes</span><span>Termo de consentimento (LGPD)</span><span>Protótipo em Python</span></div>
+              <p style="margin-top:14px">Hoje, 9 técnicos seniores estão respondendo ao questionário. A perspectiva é preparar propostas de fomento à inovação, como a FAPESP, em 2027.</p>
+              <p class="aviso">Ferramenta de apoio e ensino. Não emite laudo, não faz diagnóstico, não usa dados de pacientes e ainda não é uma ferramenta clínica validada.</p>
+            </div>
+          </article>
+
+          <article class="feature" id="pysus-contribuicao">
+            <div class="feature-art">
+              <svg viewBox="0 0 360 260" role="img" aria-label="Ilustração: um notebook com código Python e um gráfico de ramificações do Git que termina em uma contribuição aceita">
+                <rect x="24" y="36" width="206" height="188" rx="14" fill="#fff" stroke="#59436f" stroke-width="2"/>
+                <rect x="24" y="36" width="206" height="30" rx="14" fill="#e9e1f0"/>
+                <rect x="24" y="52" width="206" height="14" fill="#e9e1f0"/>
+                <g fill="#cfc5d7"><circle cx="42" cy="51" r="4"/><circle cx="56" cy="51" r="4"/><circle cx="70" cy="51" r="4"/></g>
+                <text x="84" y="55" font-size="10" font-weight="700" fill="#59436f" font-family="Consolas, Menlo, monospace">getting_started_pysus</text>
+                <rect x="38" y="78" width="178" height="50" rx="6" fill="#f4f1f5"/>
+                <text x="44" y="93" font-size="9" fill="#716d7c" font-family="Consolas, Menlo, monospace">In [1]:</text>
+                <rect x="44" y="99" width="92" height="6" rx="3" fill="#59436f"/>
+                <rect x="44" y="111" width="124" height="6" rx="3" fill="#9b7db5"/>
+                <rect x="38" y="138" width="178" height="72" rx="6" fill="#fff" stroke="#e5e0e8"/>
+                <g fill="#647c70">
+                  <rect x="52" y="178" width="14" height="22" rx="2"/>
+                  <rect x="72" y="164" width="14" height="36" rx="2"/>
+                  <rect x="92" y="150" width="14" height="50" rx="2"/>
+                  <rect x="112" y="158" width="14" height="42" rx="2"/>
+                  <rect x="132" y="172" width="14" height="28" rx="2"/>
+                  <rect x="152" y="162" width="14" height="38" rx="2"/>
+                  <rect x="172" y="180" width="14" height="20" rx="2"/>
+                </g>
+                <line x1="290" y1="44" x2="290" y2="216" stroke="#cfc5d7" stroke-width="3" stroke-linecap="round"/>
+                <path class="art-flow" d="M290 90 C334 100 334 160 290 170"/>
+                <circle cx="290" cy="56" r="7" fill="#59436f"/>
+                <circle cx="290" cy="90" r="7" fill="#59436f"/>
+                <circle cx="322" cy="130" r="7" fill="#647c70"/>
+                <circle cx="290" cy="170" r="7" fill="#59436f"/>
+                <circle cx="290" cy="206" r="7" fill="#59436f"/>
+                <rect x="256" y="224" width="96" height="24" rx="12" fill="#647c70"/>
+                <text x="304" y="240" font-size="11" font-weight="700" fill="#fff" text-anchor="middle" font-family="Inter, Segoe UI, Arial, sans-serif">#282 aceito</text>
+              </svg>
+            </div>
+            <div class="feature-body">
+              <span class="tag">Código aberto · contribuição aceita</span>
+              <h3>PySUS: meu notebook introdutório foi aceito em uma biblioteca brasileira de dados públicos de saúde</h3>
+              <p>O PySUS é uma biblioteca em Python, mantida pela comunidade na organização AlertaDengue, que permite acessar e analisar os dados públicos de saúde do país disponibilizados pelo DATASUS.</p>
+              <p>Escrevi um notebook de introdução à biblioteca, o <em>getting_started_pysus</em>, pensado para quem está começando, e o enviei ao projeto como pull request, que é a proposta formal de contribuição no GitHub. Ele está ligado à issue nº 277 e foi aceito pelos mantenedores no pull request nº 282.</p>
+              <div class="facts"><span>Pull request nº 282</span><span>Issue nº 277</span><span>Python</span><span>Código aberto</span></div>
+              <p style="margin-top:14px">O PySUS também é a base do meu trabalho de mineração epidemiológica da dengue e dos seminários de bibliotecas Python que apresentei na FATEC.</p>
+              <a class="feature-link" href="https://github.com/AlertaDengue/PySUS/pull/282" target="_blank" rel="noopener noreferrer">Ver a contribuição no GitHub ↗</a>
+            </div>
+          </article>
+
+          <article class="feature" id="iniciacao-cientifica">
+            <div class="feature-art">
+              <svg viewBox="0 0 360 260" role="img" aria-label="Ilustração: um data center ligado a símbolos de energia e de água">
+                <g stroke="#59436f" stroke-width="2" fill="#fff">
+                  <rect x="40" y="52" width="130" height="40" rx="8"/>
+                  <rect x="40" y="100" width="130" height="40" rx="8"/>
+                  <rect x="40" y="148" width="130" height="40" rx="8"/>
+                </g>
+                <g fill="#647c70">
+                  <circle class="art-led" cx="58" cy="72" r="4"/><circle class="art-led" cx="74" cy="72" r="4" style="animation-delay:.8s"/>
+                  <circle class="art-led" cx="58" cy="120" r="4" style="animation-delay:.4s"/><circle class="art-led" cx="74" cy="120" r="4" style="animation-delay:1.2s"/>
+                  <circle class="art-led" cx="58" cy="168" r="4" style="animation-delay:1.6s"/><circle class="art-led" cx="74" cy="168" r="4" style="animation-delay:.2s"/>
+                </g>
+                <g fill="#e9e1f0">
+                  <rect x="96" y="68" width="60" height="8" rx="4"/>
+                  <rect x="96" y="116" width="60" height="8" rx="4"/>
+                  <rect x="96" y="164" width="60" height="8" rx="4"/>
+                </g>
+                <rect x="30" y="196" width="150" height="8" rx="4" fill="#cfc5d7"/>
+                <path class="art-flow" d="M172 72 C200 72 206 84 222 84"/>
+                <path class="art-flow" d="M172 168 C200 168 208 184 226 190"/>
+                <polygon points="248,40 222,90 242,90 230,130 272,76 250,76 264,40" fill="#b89a5e"/>
+                <path d="M250 146 C238 164 226 176 226 192 A24 24 0 0 0 274 192 C274 176 262 164 250 146 Z" fill="#9db5a6"/>
+                <path d="M238 194 A12 12 0 0 0 248 206" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" opacity=".8"/>
+                <g font-size="10.5" fill="#716d7c" font-family="Inter, Segoe UI, Arial, sans-serif">
+                  <text x="284" y="92">energia</text>
+                  <text x="286" y="196">água</text>
+                  <text x="105" y="226" text-anchor="middle">data center</text>
+                </g>
+              </svg>
+            </div>
+            <div class="feature-body">
+              <span class="tag">Iniciação científica · em andamento</span>
+              <h3>Data centers no Brasil: o custo em energia, água e território</h3>
+              <p>Desenvolvo esta pesquisa com a orientação do Prof. Gustavo Bonin Gava, na FATEC Rio Claro. Ela parte de uma pergunta importante para quem estuda Inteligência Artificial: qual é o custo físico e social da infraestrutura que sustenta a IA?</p>
+              <p>Como estudo de caso, analiso o data center do TikTok em Caucaia (CE), descrito nos textos estudados como um conflito envolvendo o povo indígena Anacé, o uso de água e de energia e a falta de consulta prévia. A proposta é cruzar o caso com dados públicos do setor elétrico (EPE, ONS e ANEEL) e discutir o impacto sobre o aquífero e a geração real de empregos.</p>
+              <div class="facts"><span>EPE</span><span>ONS</span><span>ANEEL</span><span>Convenção 169 da OIT</span><span>Justiça socioambiental</span></div>
+              <p class="aviso" style="margin-top:14px">A pesquisa está na fase de leitura e estruturação. As referências completas e os resultados serão publicados aqui quando forem consolidados.</p>
+            </div>
+          </article>
+
+        </div>
       </div>
     </section>
 
@@ -232,6 +421,7 @@
           <div class="group-heading"><h3>Projetos de maior continuidade</h3><span>Em desenvolvimento e evolução</span></div>
           <div class="grid">
             <article class="card">
+              <img class="card-art" src="assets/mism-mulheres.jpg" width="1200" height="670" loading="lazy" alt="Ilustração em aquarela de seis mulheres de idades, tons de pele e cabelos diferentes, entre flores">
               <span class="tag">Projeto independente · iniciativa própria</span>
               <h4>MISM3 — Orientação e Inteligência Territorial</h4>
               <p>Projeto idealizado e iniciado por Vladimir Sejas por iniciativa própria. Desenvolve uma plataforma de orientação para mulheres e leitura territorial de serviços públicos em Rio Claro, com pesquisa, dados, arquitetura e implementação próprios.</p>
@@ -246,9 +436,10 @@
               <div class="meta"><span>Projeto colaborativo</span><span>Integração de sistemas</span><span>Saúde da mulher</span><span>Organização de informação</span></div>
             </article>
             <article class="card">
+              <img class="card-art" src="assets/lia-mism2.jpg" width="1200" height="670" loading="lazy" alt="Lia, a assistente do MISM2, ilustrada em aquarela em três vistas: uma senhora de cabelos grisalhos cacheados com flores, óculos e vestido roxo" style="object-position:center 28%">
               <span class="tag">Projeto acadêmico · trajetória própria</span>
               <h4>MISM2 — Sistema de Inteligência Analítica</h4>
-              <p>Projeto com foco em inteligência analítica sobre dados de internações hospitalares do SUS relacionados à saúde da mulher, indicadores, análises e recursos de apoio à informação. Apresentado separadamente do MISM3.</p>
+              <p>Projeto com foco em inteligência analítica sobre dados de internações hospitalares do SUS relacionados à saúde da mulher, indicadores, análises e recursos de apoio à informação. Inclui a Lia, assistente criada por mim, com uma camada de segurança. Apresentado separadamente do MISM3.</p>
               <div class="meta"><span>Python</span><span>Streamlit</span><span>DuckDB</span><span>Dados do SUS</span></div>
               <a href="https://github.com/vladimirsejas/MISM2" target="_blank" rel="noopener noreferrer">Consultar repositório MISM2 ↗</a>
             </article>
@@ -262,8 +453,9 @@
             <article class="card">
               <span class="tag">Iniciativa própria · pesquisa aplicada em estruturação</span>
               <h4>RadCraft-AI — preservação do conhecimento em Radiologia</h4>
-              <p>Proposta autoral de pesquisa aplicada para registrar, organizar e recuperar o conhecimento prático de técnicos experientes em radiologia. A investigação prevê entrevistas profissionais e estruturação de casos, buscando preservar saberes que nem sempre estão registrados em manuais. O projeto ainda está em fase de estruturação e não é uma ferramenta clínica validada.</p>
+              <p>Proposta autoral de pesquisa aplicada para registrar, organizar e recuperar o conhecimento prático de técnicos experientes em radiologia. A investigação prevê entrevistas profissionais e estruturação de casos, buscando preservar saberes que nem sempre estão registrados em manuais. O questionário já foi entregue a técnicos seniores, e 9 deles estão respondendo. O projeto está em fase de coleta de conhecimento e não é uma ferramenta clínica validada.</p>
               <div class="meta"><span>Inteligência Artificial</span><span>RAG</span><span>Conhecimento técnico</span><span>Pesquisa aplicada</span></div>
+              <a href="#radcraft">Ver o RadCraft-AI em destaque ↑</a>
             </article>
           </div>
         </div>
@@ -274,16 +466,16 @@
             <article class="card">
               <span class="tag">Pesquisa aplicada</span>
               <h4>Mineração Epidemiológica da Dengue</h4>
-              <p>Aplicação acadêmica com dados públicos do DATASUS/SINAN e uso da biblioteca PySUS. Explora preparação de dados, análise estatística, sazonalidade, padrões regionais, clusterização e visualização.</p>
+              <p>Aplicação acadêmica com dados públicos do DATASUS/SINAN e uso da biblioteca PySUS. Explora preparação de dados, análise estatística, sazonalidade, padrões regionais, clusterização e visualização. O foco é transformar bases públicas complexas em dados utilizáveis para investigação, sem finalidade de diagnóstico clínico.</p>
               <div class="meta"><span>PySUS</span><span>Python</span><span>Pandas</span><span>Mineração de dados</span></div>
               <a href="https://github.com/vladimirsejas/seminario" target="_blank" rel="noopener noreferrer">Consultar projeto ↗</a>
             </article>
             <article class="card">
-              <span class="tag">Pesquisa aplicada · contribuição técnica</span>
-              <h4>PySUS — Mineração Epidemiológica da Dengue</h4>
-              <p>Contribuição no trabalho de pesquisa e desenvolvimento de um fluxo de mineração epidemiológica com dados do DATASUS/SINAN. O trabalho envolve investigar e utilizar o PySUS para acesso às bases públicas, preparar e organizar dados com Python e Pandas e estruturar análises de sazonalidade, perfil demográfico e distribuição regional da dengue. O foco é transformar bases públicas complexas em dados utilizáveis para investigação, sem atribuir ao sistema finalidade de diagnóstico clínico.</p>
-              <div class="meta"><span>PySUS</span><span>DATASUS / SINAN</span><span>Python</span><span>Pandas</span><span>DuckDB / Parquet</span></div>
-              <a href="https://github.com/vladimirsejas/seminario" target="_blank" rel="noopener noreferrer">Consultar projeto e contribuição técnica ↗</a>
+              <span class="tag">Código aberto · contribuição aceita</span>
+              <h4>PySUS — notebook introdutório para iniciantes</h4>
+              <p>Contribuição aceita no repositório da biblioteca PySUS (AlertaDengue): o notebook getting_started_pysus, ligado à issue nº 277 e aceito no pull request nº 282. A biblioteca dá acesso aos dados públicos de saúde do DATASUS, e o notebook ajuda quem está começando a usá-la.</p>
+              <div class="meta"><span>PySUS</span><span>Pull request nº 282</span><span>Python</span><span>Código aberto</span></div>
+              <a href="https://github.com/AlertaDengue/PySUS/pull/282" target="_blank" rel="noopener noreferrer">Ver a contribuição no GitHub ↗</a>
             </article>
             <article class="card">
               <span class="tag">Pesquisa acadêmica</span>
@@ -351,9 +543,15 @@
         <h2>Pesquisa também faz parte do desenvolvimento.</h2>
         <p class="section-intro">Além de construir aplicações, procuro compreender os dados, os métodos e os problemas que dão origem a cada solução.</p>
         <div class="research-list">
+          <article class="research-item destaque">
+            <span class="tag">Iniciação científica · em andamento</span>
+            <h3 style="margin-top:12px">Data centers no Brasil: impactos socioambientais, energia e água</h3>
+            <p>Pesquisa com orientação do Prof. Gustavo Bonin Gava, que investiga o custo da infraestrutura da Inteligência Artificial a partir de um estudo de caso no Ceará e de dados públicos do setor elétrico.</p>
+            <a href="#iniciacao-cientifica">Ver em destaque ↑</a>
+          </article>
           <article class="research-item">
             <h3>Dados públicos de saúde</h3>
-            <p>Estudo e utilização de bases do DATASUS, com PySUS, para estruturar dados epidemiológicos e apoiar análises.</p>
+            <p>Estudo e utilização de bases do DATASUS, com PySUS, para estruturar dados epidemiológicos e apoiar análises. Inclui uma contribuição aceita ao próprio PySUS.</p>
           </article>
           <article class="research-item">
             <h3>Mineração de dados e demografia</h3>
