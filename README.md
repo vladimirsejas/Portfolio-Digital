@@ -1,3 +1,7 @@
+## Portfólio publicado
+
+Acesse a versão online: [Vladimir Queiroz Sejas — Portfólio Digital](https://vladimirsejas.github.io/Portfolio-Digital./)
+
 # Portfólio Acadêmico e Tecnológico — Vladimir Queiroz Sejas
 
 Portfólio pessoal que reúne minha trajetória na graduação em Tecnologia em Inteligência Artificial na FATEC Rio Claro, projetos de desenvolvimento, pesquisas acadêmicas e iniciativas independentes.
