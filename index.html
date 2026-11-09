@@ -237,6 +237,14 @@
       .burst-layer line { stroke-dashoffset:0; }
       .skills .skill { transition:none; }
     }
+
+    /* ---- Reflexão e referências (acrescentado) ---- */
+    .sub-titulo { font-size:1.35rem; letter-spacing:-.03em; margin:52px 0 20px; }
+    .teoria .card p { font-size:.93rem; }
+    .refs { list-style:none; max-width:900px; }
+    .refs li { padding:13px 0 13px 18px; border-bottom:1px solid var(--line); color:#4a4553; font-size:.93rem; position:relative; overflow-wrap:anywhere; }
+    .refs li:before { content:""; position:absolute; left:0; top:22px; width:6px; height:6px; border-radius:50%; background:var(--green); }
+    .refs a { color:var(--purple); text-decoration:underline; }
   </style>
 </head>
 <body>
@@ -249,6 +257,8 @@
         <a href="#projetos">Projetos</a>
         <a href="#pesquisas">Pesquisas</a>
         <a href="#formacao">Formação técnica</a>
+        <a href="#reflexao">Reflexão</a>
+        <a href="#referencias">Referências</a>
         <a href="#contato">Contato</a>
       </div>
     </nav>
@@ -642,6 +652,70 @@
           <button type="button" class="skill" data-projetos="Achei, Encontrei">PostgreSQL</button>
         </div>
         <p class="skills-note">A formação continua em andamento. Novas tecnologias e competências serão acrescentadas conforme forem aplicadas e demonstradas em projetos.</p>
+      </div>
+    </section>
+
+    <section id="reflexao">
+      <div class="wrap">
+        <div class="section-kicker">Reflexão e fundamentação</div>
+        <h2>O que aprendi e em que me apoio.</h2>
+        <div class="about-grid">
+          <div class="about-copy">
+            <p>O principal aprendizado destes semestres foi perceber que um projeto de inteligência artificial começa muito antes do código, na definição do problema e na qualidade dos dados. No MISM aprendi a trabalhar com dados públicos de saúde, a organizar um repositório compartilhado e a aceitar a revisão de código de colegas. No RadCraft-AI aprendi que capturar conhecimento de especialistas exige método; por isso elaborei um questionário e passei a conduzir entrevistas, em vez de supor o que os profissionais pensam.</p>
+            <p>As dificuldades principais foram a gestão do tempo, já que concilio trabalho noturno, estudo e vários projetos, e a complexidade técnica de colaborar com Git e GitHub, que exigiu ajustes de pastas, repositórios e permissões. Também foi difícil lidar com mudanças de rumo: o projeto Escudo Feminino foi reorganizado no MISM, com uma versão mais simples como plano alternativo; o RadCraft-AI passou a ser posicionado como gestão de conhecimento, por sugestão do orientador; e o seminário deixou de ser uma repetição do anterior para se tornar uma demonstração de evolução, com gestos em vez do terminal.</p>
+            <p>Para avançar, precisei buscar conhecimentos fora da sala de aula, como o funcionamento das chamadas de fomento da FAPESP, o uso das bases do DATASUS, a visão computacional com MediaPipe e OpenCV e conceitos de gestão do conhecimento. Minha atuação profissional evoluiu de executor de rotinas técnicas na radiologia para alguém que também propõe soluções, formula projetos de pesquisa, dialoga com orientadores e transforma a própria experiência de trabalho em objeto de estudo. Espero que este portfólio sirva de base ao meu TCC e de ponte entre a saúde e a inteligência artificial.</p>
+          </div>
+          <aside class="note">
+            <strong>Competências profissionais</strong>
+            <p>Tomada de decisão autônoma sob responsabilidade, conhecimento prático em radiologia e condução de entrevistas para levantar conhecimento técnico com profissionais experientes.</p>
+          </aside>
+        </div>
+        <h3 class="sub-titulo">Fundamentação teórica</h3>
+        <div class="grid teoria">
+          <article class="card">
+            <h4>Inteligência artificial e aprendizado de máquina</h4>
+            <p>A inteligência artificial estuda e constrói agentes capazes de perceber um ambiente e agir de modo racional para atingir objetivos, e o aprendizado de máquina é o ramo em que o desempenho melhora com a experiência com dados (RUSSELL; NORVIG, 2020). Em vez de programar cada regra, fornecem-se exemplos e um algoritmo ajusta o modelo para reduzir o erro. No RadCraft-AI, esse conceito orienta a transformação de respostas de especialistas em dados estruturados.</p>
+          </article>
+          <article class="card">
+            <h4>Conhecimento tácito e gestão do conhecimento</h4>
+            <p>Polanyi (1966) formulou que sabemos mais do que conseguimos dizer, e Nonaka e Takeuchi (1997) usaram a ideia para explicar como organizações criam conhecimento ao converter experiências difíceis de verbalizar em conhecimento explícito. É a base teórica do RadCraft-AI: a prática de técnicos com décadas de experiência é, em grande parte, conhecimento tácito que o questionário e as entrevistas procuram tornar explícito.</p>
+          </article>
+          <article class="card">
+            <h4>Python e bibliotecas de análise de dados</h4>
+            <p>Python é uma linguagem de alto nível, de sintaxe legível, mantida pela Python Software Foundation e muito usada em ciência de dados (PYTHON SOFTWARE FOUNDATION, [s.d.]). Para dados públicos de saúde uso o PySUS, que baixa e processa bases do DATASUS, como o Sistema de Informações Hospitalares (PYSUS, [s.d.]). Para visualização uso o matplotlib, biblioteca de gráficos apresentada por Hunter (2007).</p>
+          </article>
+          <article class="card">
+            <h4>Visão computacional: OpenCV e MediaPipe</h4>
+            <p>A OpenCV é uma biblioteca de código aberto para visão computacional, com funções de captura de câmera e desenho sobre quadros (BRADSKI, 2000). O MediaPipe, do Google, traz a tarefa Hand Landmarker, que localiza 21 pontos das articulações da mão (GOOGLE AI EDGE, [s.d.]). No seminário de gestos, a OpenCV captura a webcam e o MediaPipe fornece os pontos que formam a constelação.</p>
+          </article>
+          <article class="card">
+            <h4>Controle de versão com Git e GitHub</h4>
+            <p>O Git é um sistema de controle de versão distribuído que registra o histórico de alterações e permite o trabalho em paralelo, e sua criação a partir da comunidade do kernel do Linux é descrita por Chacon e Straub (2014). O GitHub hospeda repositórios na nuvem e facilita a colaboração e a revisão de código, como no MISM.</p>
+          </article>
+          <article class="card">
+            <h4>Técnica radiológica</h4>
+            <p>A literatura de referência da área, como o tratado de Lampignano e Kendrick (2023), orienta o posicionamento e a anatomia radiográfica. O RadCraft-AI parte dela, mas busca registrar o que vai além do livro: o ajuste fino de posicionamento, angulação e parâmetros de exposição que técnicos seniores aprendem na prática.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="referencias">
+      <div class="wrap">
+        <div class="section-kicker">Referências</div>
+        <h2>Fontes consultadas.</h2>
+        <ul class="refs">
+          <li>BRADSKI, G. The OpenCV Library. <em>Dr. Dobb's Journal of Software Tools</em>, v. 25, n. 11, p. 120–125, 2000.</li>
+          <li>CHACON, S.; STRAUB, B. <em>Pro Git</em>. 2. ed. Berkeley: Apress, 2014. Disponível em: <a href="https://git-scm.com/book/en/v2" target="_blank" rel="noopener noreferrer">https://git-scm.com/book/en/v2</a>. Acesso em: 16 out. 2026.</li>
+          <li>GOOGLE AI EDGE. <em>Hand landmarks detection guide</em>. Google for Developers, [s.d.]. Disponível em: <a href="https://developers.google.com/edge/mediapipe/solutions/vision/hand_landmarker" target="_blank" rel="noopener noreferrer">https://developers.google.com/edge/mediapipe/solutions/vision/hand_landmarker</a>. Acesso em: 16 out. 2026.</li>
+          <li>HUNTER, J. D. Matplotlib: a 2D graphics environment. <em>Computing in Science &amp; Engineering</em>, v. 9, n. 3, p. 90–95, 2007. DOI: <a href="https://doi.org/10.1109/MCSE.2007.55" target="_blank" rel="noopener noreferrer">https://doi.org/10.1109/MCSE.2007.55</a>.</li>
+          <li>LAMPIGNANO, J. P.; KENDRICK, L. E. <em>Bontrager: tratado de posicionamento radiográfico e anatomia associada</em>. 10. ed. Rio de Janeiro: Guanabara Koogan, 2023.</li>
+          <li>NONAKA, I.; TAKEUCHI, H. <em>Criação de conhecimento na empresa: como as empresas japonesas geram a dinâmica da inovação</em>. Tradução de Ana Beatriz Rodrigues e Priscilla Martins Celeste. Rio de Janeiro: Campus, 1997.</li>
+          <li>POLANYI, M. <em>The tacit dimension</em>. Garden City: Doubleday, 1966.</li>
+          <li>PYSUS. <em>PySUS documentation</em>. [S. l.], [s.d.]. Disponível em: <a href="https://pysus.readthedocs.io/" target="_blank" rel="noopener noreferrer">https://pysus.readthedocs.io/</a>. Acesso em: 16 out. 2026.</li>
+          <li>PYTHON SOFTWARE FOUNDATION. <em>The Python tutorial</em>. [S. l.]: Python Software Foundation, [s.d.]. Disponível em: <a href="https://docs.python.org/3/tutorial/" target="_blank" rel="noopener noreferrer">https://docs.python.org/3/tutorial/</a>. Acesso em: 16 out. 2026.</li>
+          <li>RUSSELL, S.; NORVIG, P. <em>Artificial intelligence: a modern approach</em>. 4. ed. Hoboken: Pearson, 2020.</li>
+        </ul>
       </div>
     </section>
 
